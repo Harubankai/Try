@@ -1,4 +1,4 @@
-name: Deploy to krustykrabb.kesug.com
+name: Auto Deploy Website to InfinityFree
 
 on:
   workflow_dispatch:
@@ -8,13 +8,14 @@ on:
 
 jobs:
   deploy:
+    name: Upload Website Files
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v4
 
-      - name: Deploy via FTP
+      - name: Deploy Files via FTP
         uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ftpupload.net
